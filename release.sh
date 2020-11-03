@@ -118,7 +118,7 @@ sed '1d' youtube-dl > youtube_dl.zip
 mv youtube-dl "build/$version"
 mv youtube_dl.zip "build/$version"
 #mv youtube-dl.tar.gz "build/$version/youtube-dl-$version.tar.gz"
-RELEASE_FILES="youtube-dl youtube-dl-$version.tar.gz"
+RELEASE_FILES="youtube-dl"
 (cd build/$version/ && md5sum $RELEASE_FILES > MD5SUMS)
 (cd build/$version/ && sha1sum $RELEASE_FILES > SHA1SUMS)
 (cd build/$version/ && sha256sum $RELEASE_FILES > SHA2-256SUMS)
