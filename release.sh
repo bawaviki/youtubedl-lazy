@@ -44,7 +44,7 @@ esac
 done
 
 #if [ -z "$1" ]; then echo "ERROR: specify version number like this: $0 1994.09.06"; exit 1; fi
-version="2020.11.01"
+version="2020.11.10"
 major_version=$(echo "$version" | sed -n 's#^\([0-9]*\.[0-9]*\.[0-9]*\).*#\1#p')
 #if test "$major_version" '!=' "$(date '+%Y.%m.%d')"; then
 #    echo "$version does not start with today's date!"
