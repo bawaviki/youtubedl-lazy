@@ -44,7 +44,7 @@ esac
 done
 
 #if [ -z "$1" ]; then echo "ERROR: specify version number like this: $0 1994.09.06"; exit 1; fi
-version="2020.11.10"
+version="$(curl -s https://ytdl-org.github.io/youtube-dl/update/LATEST_VERSION)"
 major_version=$(echo "$version" | sed -n 's#^\([0-9]*\.[0-9]*\.[0-9]*\).*#\1#p')
 #if test "$major_version" '!=' "$(date '+%Y.%m.%d')"; then
 #    echo "$version does not start with today's date!"
@@ -110,15 +110,15 @@ fi
 /bin/echo -e "\n### OK, now it is time to build the binaries..."
 REV=$(git rev-parse HEAD)
 make lazy-extractors
-make youtube-dl 
+make youtube-dl youtube-dl.tar.gz
 #read -p "VM running? (y/n) " -n 1
 #wget "http://$buildserver/build/rg3/youtube-dl/youtube-dl.exe?rev=$REV" -O youtube-dl.exe
 mkdir -p "build/$version"
 sed '1d' youtube-dl > youtube_dl.zip
 mv youtube-dl "build/$version"
 mv youtube_dl.zip "build/$version"
-#mv youtube-dl.tar.gz "build/$version/youtube-dl-$version.tar.gz"
-RELEASE_FILES="youtube-dl"
+mv youtube-dl.tar.gz "build/$version/youtube-dl-$version.tar.gz"
+RELEASE_FILES="youtube-dl youtube-dl-$version.tar.gz"
 (cd build/$version/ && md5sum $RELEASE_FILES > MD5SUMS)
 (cd build/$version/ && sha1sum $RELEASE_FILES > SHA1SUMS)
 (cd build/$version/ && sha256sum $RELEASE_FILES > SHA2-256SUMS)
