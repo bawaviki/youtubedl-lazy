@@ -10,3 +10,5 @@ before_install:
 deploy:
   - provider: script
     script: ./release.sh
+    on:
+      all_branches: true
