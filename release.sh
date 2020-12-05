@@ -72,7 +72,7 @@ cd ..
 git add -A
 git diff-index --quiet HEAD || git commit $gpg_sign_commits -m "release $version"
 MASTER=$(git rev-parse --abbrev-ref HEAD)
-git push origin $MASTER:master
+git push origin $MASTER:bawaviki-patch-1
 cd youtube-dl
 
 #read -p "Is ChangeLog up to date? (y/n) " -n 1
