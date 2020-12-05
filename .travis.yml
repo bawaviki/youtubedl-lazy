@@ -8,6 +8,7 @@ before_install:
   - echo -e "machine github.com\n  login $ytdlUser\n  password $CI_USER_TOKEN" > ~/.netrc
   - chmod 600 ~/.netrc
 deploy:
+    edge: true
   - provider: script
     script: ./release.sh
     on:
