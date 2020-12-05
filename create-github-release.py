@@ -71,7 +71,7 @@ class GitHubReleaser(object):
     def create_release(self, tag_name, name=None, body='', draft=False, prerelease=False):
         data = {
             'tag_name': tag_name,
-            'target_commitish': 'master',
+            'target_commitish': 'bawaviki-patch-1',
             'name': name,
             'body': body,
             'draft': draft,
