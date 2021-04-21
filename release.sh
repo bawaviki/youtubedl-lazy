@@ -56,7 +56,10 @@ if test -z "$major_version"; then
     exit 1
 fi
 
-#if [ ! -z "`git tag | grep "$version"`" ]; then echo 'version already present'; exit 0; fi
+if [ ! -z "`git tag | grep "$version"`" ]; 
+then echo 'version already present but force to build'; 
+#exit 0; 
+#fi
 
 cd youtube-dl
 git checkout $version
